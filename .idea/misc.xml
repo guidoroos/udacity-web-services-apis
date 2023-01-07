@@ -6,8 +6,9 @@
         <option value="$PROJECT_DIR$/P02-VehiclesAPI/boogle-maps/pom.xml" />
         <option value="$PROJECT_DIR$/P02-VehiclesAPI/vehicles-api/pom.xml" />
         <option value="$PROJECT_DIR$/P02-VehiclesAPI/pricing-service/pom.xml" />
+        <option value="$PROJECT_DIR$/P02-VehiclesAPI/eureka-service/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="17" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="corretto-11" project-jdk-type="JavaSDK" />
 </project>
