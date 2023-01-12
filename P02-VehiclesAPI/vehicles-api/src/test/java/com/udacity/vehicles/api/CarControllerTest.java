@@ -86,6 +86,26 @@ public class CarControllerTest {
     }
 
     /**
+     * Tests for successful creation of new car in the system
+     *
+     * @throws Exception when car creation fails in the system
+     */
+    @Test
+    public void updateCar() throws Exception {
+        Car updatedCar = getCar();
+        updatedCar.setId(1L);
+        updatedCar.setCondition(Condition.NEW);
+
+        mvc.perform(
+                        post(new URI("/cars"))
+                                .content(json.write(updatedCar).getJson())
+                                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .andDo(print())
+                .andExpect(status().isCreated());
+    }
+
+    /**
      * Tests if the read operation appropriately returns a list of vehicles.
      *
      * @throws Exception if the read operation of the vehicle list fails
@@ -107,10 +127,6 @@ public class CarControllerTest {
      */
     @Test
     public void findCar() throws Exception {
-        /**
-         * TODO: Add a test to check that the `get` method works by calling
-         *   a vehicle by ID. This should utilize the car from `getCar()` below.
-         */
         mvc.perform(get(new URI("/cars/1"))
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .accept(MediaType.APPLICATION_JSON_UTF8))
@@ -129,11 +145,6 @@ public class CarControllerTest {
      */
     @Test
     public void deleteCar() throws Exception {
-        /**
-         * TODO: Add a test to check whether a vehicle is appropriately deleted
-         *   when the `delete` method is called from the Car Controller. This
-         *   should utilize the car from `getCar()` below.
-         */
         mvc.perform(delete(new URI("/cars/1"))
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .accept(MediaType.APPLICATION_JSON_UTF8))
